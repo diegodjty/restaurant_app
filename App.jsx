@@ -17,12 +17,55 @@ function App() {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#FFDA00',
+            },
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}>
           <Stack.Screen
             name="New Order"
             component={NewOrder}
             options={{
               title: 'New Order',
+            }}
+          />
+          <Stack.Screen
+            name="Menu"
+            component={Menu}
+            options={{
+              title: 'Menu',
+            }}
+          />
+          <Stack.Screen
+            name="Dish Detail"
+            component={DishDetails}
+            options={{
+              title: 'Dish Detail',
+            }}
+          />
+          <Stack.Screen
+            name="Dish"
+            component={DishForm}
+            options={{
+              title: 'Dish',
+            }}
+          />
+          <Stack.Screen
+            name="Order Details"
+            component={OrderDetails}
+            options={{
+              title: 'Order Details',
+            }}
+          />
+          <Stack.Screen
+            name="Order progress"
+            component={OrderProgress}
+            options={{
+              title: 'Order progress',
             }}
           />
         </Stack.Navigator>
