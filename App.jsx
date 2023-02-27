@@ -9,67 +9,73 @@ import DishForm from './views/DishForm';
 import OrderProgress from './views/OrderProgress';
 import DishDetails from './views/DishDetails';
 
-OrderProgress;
+import {NativeBaseProvider, Text, Box} from 'native-base';
+import {OrdersProvider} from './context/orders/ordersContext';
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
     <>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: '#FFDA00',
-            },
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}>
-          <Stack.Screen
-            name="New Order"
-            component={NewOrder}
-            options={{
-              title: 'New Order',
-            }}
-          />
-          <Stack.Screen
-            name="Menu"
-            component={Menu}
-            options={{
-              title: 'Menu',
-            }}
-          />
-          <Stack.Screen
-            name="Dish Detail"
-            component={DishDetails}
-            options={{
-              title: 'Dish Detail',
-            }}
-          />
-          <Stack.Screen
-            name="Dish"
-            component={DishForm}
-            options={{
-              title: 'Dish',
-            }}
-          />
-          <Stack.Screen
-            name="Order Details"
-            component={OrderDetails}
-            options={{
-              title: 'Order Details',
-            }}
-          />
-          <Stack.Screen
-            name="Order progress"
-            component={OrderProgress}
-            options={{
-              title: 'Order progress',
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <NativeBaseProvider>
+        <OrdersProvider>
+          <NavigationContainer>
+            <Stack.Navigator
+              screenOptions={{
+                headerStyle: {
+                  backgroundColor: '#FFDA00',
+                },
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                },
+                headerTintColor: '#000',
+              }}>
+              <Stack.Screen
+                name="New Order"
+                component={NewOrder}
+                options={{
+                  title: 'New Order',
+                }}
+              />
+              <Stack.Screen
+                name="Menu"
+                component={Menu}
+                options={{
+                  title: 'Menu',
+                }}
+              />
+              <Stack.Screen
+                name="Dish Detail"
+                component={DishDetails}
+                options={{
+                  title: 'Dish Detail',
+                }}
+              />
+              <Stack.Screen
+                name="Dish"
+                component={DishForm}
+                options={{
+                  title: 'Dish',
+                }}
+              />
+              <Stack.Screen
+                name="Order Details"
+                component={OrderDetails}
+                options={{
+                  title: 'Order Details',
+                }}
+              />
+              <Stack.Screen
+                name="Order progress"
+                component={OrderProgress}
+                options={{
+                  title: 'Order progress',
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </OrdersProvider>
+      </NativeBaseProvider>
     </>
   );
 }
