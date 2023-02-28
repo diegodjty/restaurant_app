@@ -11,12 +11,14 @@ import DishDetails from './views/DishDetails';
 
 import {NativeBaseProvider, Text, Box} from 'native-base';
 import {OrdersProvider} from './context/orders/ordersContext';
+import {TailwindProvider} from 'tailwind-rn';
+import utilities from './tailwind.json';
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
-    <>
+    <TailwindProvider utilities={utilities}>
       <NativeBaseProvider>
         <OrdersProvider>
           <NavigationContainer>
@@ -76,7 +78,7 @@ function App() {
           </NavigationContainer>
         </OrdersProvider>
       </NativeBaseProvider>
-    </>
+    </TailwindProvider>
   );
 }
 
